@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Card, CardImg, CardText, CardBody, CardTitle, } from 'reactstrap';
+import Moment from 'react-moment';
 
 class DishDetail extends Component {
     constructor(props){
@@ -11,7 +12,7 @@ class DishDetail extends Component {
             return (
                 <ul key = {dcs.id} className="list-unstyled">
                     <li>{dcs.comment}</li>
-                    <li>--{dcs.author}</li>
+                    <li>-- {dcs.author}, <Moment format="MMM DD,YYYY">{dcs.date}</Moment></li>
                 </ul>
             )
         })
@@ -36,9 +37,6 @@ class DishDetail extends Component {
                     </Card>
                 </div>
                 {this.renderComments(dish)}
-                {/* <div className="col-12 col-md-5 m-1">
-                    Hello
-                </div> */}
             </div>
         )
     }
